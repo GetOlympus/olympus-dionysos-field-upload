@@ -2,8 +2,6 @@
 
 _This component is a part of the [**Olympus Hera**](https://github.com/crewstyle/OlympusHera) **WordPress** library._  
 
-![Thumbnail](https://www.filepicker.io/api/file/XCktFJcVSbylE71Sf8Bv)
-
 ---
 
 ### Resources
