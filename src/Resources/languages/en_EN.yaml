@@ -1,0 +1,13 @@
+# Main component
+upload:
+  title: Upload
+  add_media: Add media
+  add_medias: Add medias
+  delete_selection: Delete selection
+  delete_all: Delete all medias
+  cannot_upload: It seems you are not able to upload files.
+  sizes:
+    title: Available sizes
+    full: Full size media
+  alt: Alternative text
+  caption: Caption
