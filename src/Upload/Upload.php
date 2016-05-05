@@ -2,8 +2,8 @@
 
 namespace GetOlympus\Field;
 
-use GetOlympus\Hera\Controllers\Field;
-use GetOlympus\Hera\Controllers\Translate;
+use GetOlympus\Hera\Field\Controller\Field;
+use GetOlympus\Hera\Translate\Controller\Translate;
 
 /**
  * Builds Upload field.
@@ -43,7 +43,7 @@ class Upload extends Field
         // Build defaults
         $defaults = [
             'id' => '',
-            'title' => Translate::t('upload.title'),
+            'title' => Translate::t('upload.title', [], 'uploadfield'),
             'default' => [],
             'description' => '',
             'library' => 'image',
@@ -59,17 +59,17 @@ class Upload extends Field
             'template' => 'pages',
 
             // texts
-            't_add_media' => Translate::t('upload.add_media'),
-            't_add_medias' => Translate::t('upload.add_medias'),
-            't_delete_item' => Translate::t('upload.delete_selection'),
-            't_delete_all' => Translate::t('upload.delete_all'),
-            't_cannot_upload' => Translate::t('upload.cannot_upload'),
+            't_add_media' => Translate::t('upload.add_media', [], 'uploadfield'),
+            't_add_medias' => Translate::t('upload.add_medias', [], 'uploadfield'),
+            't_delete_item' => Translate::t('upload.delete_selection', [], 'uploadfield'),
+            't_delete_all' => Translate::t('upload.delete_all', [], 'uploadfield'),
+            't_cannot_upload' => Translate::t('upload.cannot_upload', [], 'uploadfield'),
 
-            't_sizes' => Translate::t('upload.sizes.title'),
-            't_size_full' => Translate::t('upload.sizes.full'),
+            't_sizes' => Translate::t('upload.sizes.title', [], 'uploadfield'),
+            't_size_full' => Translate::t('upload.sizes.full', [], 'uploadfield'),
 
-            't_alt' => Translate::t('upload.alt'),
-            't_caption' => Translate::t('upload.caption'),
+            't_alt' => Translate::t('upload.alt', [], 'uploadfield'),
+            't_caption' => Translate::t('upload.caption', [], 'uploadfield'),
         ];
 
         // Build defaults data
