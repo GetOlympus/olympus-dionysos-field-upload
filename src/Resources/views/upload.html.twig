@@ -1,6 +1,6 @@
 {% set twigtpl = template and template == 'terms' ? 'terms' : 'pages' %}
 
-{% extends "Layouts/Extends/" ~ twigtpl ~ ".html.twig" %}
+{% extends "@template/Layouts/Extends/" ~ twigtpl ~ ".html.twig" %}
 
 {% block id %}{{ id }}_upload{% endblock %}
 {% block label %}<label>{{ title|raw }}</label>{% endblock %}
@@ -96,7 +96,7 @@
 
 {% block footer %}
     <script type="text/x-handlebars-template" id="i-uploads-{{ id }}">
-        {% include 'expand.html.twig' with {
+        {% include '@uploadField/expand.html.twig' with {
             'multiple': multiple,
             'expand': expand,
             'id': id,
