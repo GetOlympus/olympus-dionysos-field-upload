@@ -21,22 +21,21 @@ use GetOlympus\Hera\Translate\Controller\Translate;
 class Upload extends Field
 {
     /**
-     * @var string
+     * Prepare variables.
      */
-    protected $faIcon = 'fa-upload';
-
-    /**
-     * @var string
-     */
-    protected $template = 'upload.html.twig';
+    protected function setVars()
+    {
+        $this->getModel()->setFaIcon('fa-upload');
+        $this->getModel()->setScript('js'.S.'upload.js');
+        $this->getModel()->setStyle('css'.S.'upload.css');
+        $this->getModel()->setTemplate('upload.html.twig');
+    }
 
     /**
      * Prepare HTML component.
      *
      * @param array $content
      * @param array $details
-     *
-     * @since 0.0.1
      */
     protected function getVars($content, $details = [])
     {
@@ -51,12 +50,7 @@ class Upload extends Field
             'expand' => false,
             'alt' => '',
             'caption' => '',
-            'can_upload' => OLH_CAN_UPLOAD,
-
-            // details
-            'post' => 0,
-            'prefix' => '',
-            'template' => 'pages',
+            'can_upload' => current_user_can('upload_files'),
 
             // texts
             't_add_media' => Translate::t('upload.add_media', [], 'uploadfield'),
@@ -74,12 +68,14 @@ class Upload extends Field
 
         // Build defaults data
         $vars = array_merge($defaults, $content);
+
+        // Special case
         $vars['library'] = 'pdf' === $vars['library'] ? 'application/pdf' : $vars['library'];
 
         // Retrieve field value
-        $vars['val'] = $this->getValue($details, $vars['default'], $content['id'], true);
+        $vars['val'] = $this->getValue($content['id'], $details, $vars['default']);
 
         // Update vars
-        $this->getField()->setVars($vars);
+        $this->getModel()->setVars($vars);
     }
 }

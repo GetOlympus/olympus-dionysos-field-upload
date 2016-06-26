@@ -1,15 +1,11 @@
-{% set twigtpl = template and template == 'terms' ? 'terms' : 'pages' %}
-
-{% extends "@template/Layouts/Extends/" ~ twigtpl ~ ".html.twig" %}
+{% extends template_path %}
 
 {% block id %}{{ id }}_upload{% endblock %}
 {% block label %}<label>{{ title|raw }}</label>{% endblock %}
 
 {% block field %}
-    <div class="olz-field-content upload" data-id="{{ id }}" data-t="{{ library|raw }}"{{ multiple ? ' data-m="1"' : '' }}>
+    <div class="olh-field-content upload" data-id="{{ id }}" data-t="{{ library|raw }}"{{ multiple ? ' data-m="1"' : '' }}>
         <input type="hidden" name="{{ id }}" value="" />
-
-        {% if description %}<p class="olz-description">{{ description|raw }}</p>{% endif %}
 
         <div class="u-results">
             {% for item in val if item.id %}
@@ -56,7 +52,7 @@
 
                                 <ul class="u-lists">
                                     <li>
-                                        <a href="{{ item.url }}" title="{{ t_size_full|raw }}" class="olz-tooltip" target="_blank">{{ item.width }} x {{ item.height }} <i class="fa fa-external-link"></i></a>
+                                        <a href="{{ item.url }}" title="{{ t_size_full|raw }}" class="olh-tooltip" target="_blank">{{ item.width }} x {{ item.height }} <i class="fa fa-external-link"></i></a>
                                     </li>
 
                                     {% for k, i in item.sizes %}
@@ -66,7 +62,7 @@
                                             <input type="hidden" name="{{ name }}[sizes][{{ k }}][url]" value="{{ i.url }}" />
                                             <input type="hidden" name="{{ name }}[sizes][{{ k }}][width]" value="{{ i.width }}" />
 
-                                            <a href="{{ i.url }}" title="{{ i.name }}" class="olz-tooltip" target="_blank">{{ i.width }} x {{ i.height }} <i class="fa fa-external-link"></i></a>
+                                            <a href="{{ i.url }}" title="{{ i.name }}" class="olh-tooltip" target="_blank">{{ i.width }} x {{ i.height }} <i class="fa fa-external-link"></i></a>
                                         </li>
                                     {% endfor %}
                                 </ul>
@@ -96,7 +92,7 @@
 
 {% block footer %}
     <script type="text/x-handlebars-template" id="i-uploads-{{ id }}">
-        {% include '@uploadField/expand.html.twig' with {
+        {% include '@upload/expand.html.twig' with {
             'multiple': multiple,
             'expand': expand,
             'id': id,
@@ -107,4 +103,8 @@
             't_size_full': t_size_full,
         } only %}
     </script>
+{% endblock %}
+
+{% block description %}
+    {{ description|raw }}
 {% endblock %}

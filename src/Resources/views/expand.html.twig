@@ -35,7 +35,7 @@
 
                 <ul class="u-lists">
                     <li>
-                        <a href="{% verbatim %}{{ url }}{% endverbatim %}" title="{{ t_size_full|raw }}" class="olz-tooltip" target="_blank">{% verbatim %}{{ width }}{% endverbatim %} x {% verbatim %}{{ height }}{% endverbatim %} <i class="fa fa-external-link"></i></a>
+                        <a href="{% verbatim %}{{ url }}{% endverbatim %}" title="{{ t_size_full|raw }}" class="olh-tooltip" target="_blank">{% verbatim %}{{ width }}{% endverbatim %} x {% verbatim %}{{ height }}{% endverbatim %} <i class="fa fa-external-link"></i></a>
                     </li>
 
                     {% verbatim %}{{#each sizes}}{% endverbatim %}
@@ -45,7 +45,7 @@
                             <input type="hidden" name="{{ id }}[{% verbatim %}{{ this.id }}{% endverbatim %}][sizes][{% verbatim %}{{ this.key }}{% endverbatim %}][url]" value="{% verbatim %}{{ this.url }}{% endverbatim %}" />
                             <input type="hidden" name="{{ id }}[{% verbatim %}{{ this.id }}{% endverbatim %}][sizes][{% verbatim %}{{ this.key }}{% endverbatim %}][width]" value="{% verbatim %}{{ this.width }}{% endverbatim %}" />
 
-                            <a href="{% verbatim %}{{ this.url }}{% endverbatim %}" title="{% verbatim %}{{ this.key }}{% endverbatim %}" class="olz-tooltip" target="_blank">{% verbatim %}{{ this.width }}{% endverbatim %} x {% verbatim %}{{ this.height }}{% endverbatim %} <i class="fa fa-external-link"></i></a>
+                            <a href="{% verbatim %}{{ this.url }}{% endverbatim %}" title="{% verbatim %}{{ this.key }}{% endverbatim %}" class="olh-tooltip" target="_blank">{% verbatim %}{{ this.width }}{% endverbatim %} x {% verbatim %}{{ this.height }}{% endverbatim %} <i class="fa fa-external-link"></i></a>
                         </li>
                     {% verbatim %}{{/each}}{% endverbatim %}
                 </ul>
