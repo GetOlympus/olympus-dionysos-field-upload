@@ -1,8 +1,8 @@
 {
   "name": "getolympus/olympus-upload-field",
   "type": "olympus-field",
-  "description": "[READ-ONLY] Upload field, this component is a part of the Olympus Zeus Core framework.",
-  "keywords": ["olympus", "zeus", "field", "upload", "framework", "php"],
+  "description": "Upload field, this component is a part of the Olympus Zeus Core framework.",
+  "keywords": ["olympus-zeus", "upload", "field", "custom", "medialib", "framework", "php", "wordpress"],
   "homepage": "https://github.com/GetOlympus/olympus-upload-field",
   "license": "MIT",
   "authors": [
