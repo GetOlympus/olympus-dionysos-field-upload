@@ -1,55 +1,44 @@
-<fieldset class="{{ multiple ? 'movendrop' : '' }}{{ expand ? ' expand' : '' }}" data-u="{% verbatim %}{{ id }}{% endverbatim %}">
-    <a href="#deleteMedia" class="del-media"><i class="fa fa-times"></i></a>
+{% set _id = id is defined ? id : '{{ data.id }}' %}
+{% set _display = display is defined ? display : '{{ data.display }}' %}
+{% set _name = name is defined ? name : '{{ data.name }}' %}
+{% set _height = height is defined ? height : '{{ data.height }}' %}
+{% set _url = url is defined ? url : '{{ data.url }}' %}
+{% set _width = width is defined ? width : '{{ data.width }}' %}
 
-    <input type="hidden" name="{{ name }}[{% verbatim %}{{ id }}{% endverbatim %}][id]" value="{% verbatim %}{{ id }}{% endverbatim %}" />
-    <input type="hidden" name="{{ name }}[{% verbatim %}{{ id }}{% endverbatim %}][name]" value="{% verbatim %}{{ name }}{% endverbatim %}" />
-    <input type="hidden" name="{{ name }}[{% verbatim %}{{ id }}{% endverbatim %}][height]" value="{% verbatim %}{{ height }}{% endverbatim %}" />
-    <input type="hidden" name="{{ name }}[{% verbatim %}{{ id }}{% endverbatim %}][url]" value="{% verbatim %}{{ url }}{% endverbatim %}" />
-    <input type="hidden" name="{{ name }}[{% verbatim %}{{ id }}{% endverbatim %}][width]" value="{% verbatim %}{{ width }}{% endverbatim %}" />
-
-    <figure class="u-block{{ library in ['image', 'video'] ? ' u-damier' : '' }}">
-        {% if library == 'video' %}
-            <video src="{% verbatim %}{{ display }}{% endverbatim %}" controls></video>
-        {% else %}
-            <img src="{% verbatim %}{{ display }}{% endverbatim %}" alt="" class="image" />
-        {% endif %}
-
-        <br/><small>{% verbatim %}{{ name }}{% endverbatim %}</small>
-    </figure>
-
-    {% if expand %}
-        <figcaption class="u-details">
-            <div class="u-texts">
-                <p>
-                    <label for="{{ id }}_{% verbatim %}{{ id }}{% endverbatim %}-alt">{{ t_alt|raw }}</label>
-                    <input type="text" name="{{ name }}[{% verbatim %}{{ id }}{% endverbatim %}][alt]" id="{{ id }}_{% verbatim %}{{ id }}{% endverbatim %}-alt" value="{% verbatim %}{{ alt }}{% endverbatim %}" />
-                </p>
-                <p>
-                    <label for="{{ id }}_{% verbatim %}{{ id }}{% endverbatim %}-caption">{{ t_caption|raw }}</label>
-                    <input type="text" name="{{ name }}[{% verbatim %}{{ id }}{% endverbatim %}][caption]" id="{{ id }}_{% verbatim %}{{ id }}{% endverbatim %}-caption" value="{% verbatim %}{{ caption }}{% endverbatim %}" />
-                </p>
-            </div>
-
-            <div class="u-sizes">
-                <h3>{{ t_sizes|raw }}</h3>
-
-                <ul class="u-lists">
-                    <li>
-                        <a href="{% verbatim %}{{ url }}{% endverbatim %}" title="{{ t_size_full|raw }}" class="olh-tooltip" target="_blank">{% verbatim %}{{ width }}{% endverbatim %} x {% verbatim %}{{ height }}{% endverbatim %} <i class="fa fa-external-link"></i></a>
-                    </li>
-
-                    {% verbatim %}{{#each sizes}}{% endverbatim %}
-                        <li>
-                            <input type="hidden" name="{{ name }}[{% verbatim %}{{ this.id }}{% endverbatim %}][sizes][{% verbatim %}{{ this.key }}{% endverbatim %}][height]" value="{% verbatim %}{{ this.height }}{% endverbatim %}" />
-                            <input type="hidden" name="{{ name }}[{% verbatim %}{{ this.id }}{% endverbatim %}][sizes][{% verbatim %}{{ this.key }}{% endverbatim %}][name]" value="{% verbatim %}{{ this.key }}{% endverbatim %}" />
-                            <input type="hidden" name="{{ name }}[{% verbatim %}{{ this.id }}{% endverbatim %}][sizes][{% verbatim %}{{ this.key }}{% endverbatim %}][url]" value="{% verbatim %}{{ this.url }}{% endverbatim %}" />
-                            <input type="hidden" name="{{ name }}[{% verbatim %}{{ this.id }}{% endverbatim %}][sizes][{% verbatim %}{{ this.key }}{% endverbatim %}][width]" value="{% verbatim %}{{ this.width }}{% endverbatim %}" />
-
-                            <a href="{% verbatim %}{{ this.url }}{% endverbatim %}" title="{% verbatim %}{{ this.key }}{% endverbatim %}" class="olh-tooltip" target="_blank">{% verbatim %}{{ this.width }}{% endverbatim %} x {% verbatim %}{{ this.height }}{% endverbatim %} <i class="fa fa-external-link"></i></a>
-                        </li>
-                    {% verbatim %}{{/each}}{% endverbatim %}
-                </ul>
-            </div>
-        </figcaption>
+<fieldset data-u="{{ _id }}">
+    {% if can_upload %}
+        <a href="#deleteMedia" class="del-media">
+            <i class="dashicons dashicons-no-alt"></i>
+        </a>
     {% endif %}
+
+    {% if 'image' == type %}
+        <figure class="u-block">
+            <img src="{{ _display }}" alt="" class="image" />
+        </figure>
+    {% else %}
+        <div class="u-block">
+            <a href="{{ _display }}" target="_blank"><small>{{ _name }}</small></a>
+        </div>
+    {% endif %}
+
+    <div class="u-details">
+        <p class="u-texts">
+            <span>{{ t_label|raw }}</span>
+            <input type="text" name="{{ fieldname }}[{{ _id }}][name]" value="{{ _name }}" class="regular-text" />
+        </p>
+
+        <p class="u-texts">
+            <small>
+                <b>{{ t_url|raw }}</b> <a href="{{ _url }}" target="_blank"><i class="dashicons dashicons-external"></i></a></br/>
+                <b>{{ t_dimensions|raw }}</b> {{ _width }}*{{ _height }}px<br/>
+                <b>{{ t_size|raw }}</b> {{ size }}
+            </small>
+        </p>
+
+        <input type="hidden" name="{{ fieldname }}[{{ _id }}][id]" value="{{ _id }}" />
+        <input type="hidden" name="{{ fieldname }}[{{ _id }}][height]" value="{{ _height }}" />
+        <input type="hidden" name="{{ fieldname }}[{{ _id }}][url]" value="{{ _url }}" />
+        <input type="hidden" name="{{ fieldname }}[{{ _id }}][width]" value="{{ _width }}" />
+    </div>
 </fieldset>

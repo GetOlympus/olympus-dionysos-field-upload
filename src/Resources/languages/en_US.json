@@ -1,0 +1,16 @@
+{
+    "upload.title": "Upload",
+
+    "upload.add_media": "Add media",
+    "upload.add_medias": "Add medias",
+
+    "upload.delete_selection": "Delete selection",
+    "upload.delete_all": "Delete all medias",
+
+    "upload.cannot_upload": "It seems you are not able to upload files.",
+
+    "upload.dimensions": "Dimensions:",
+    "upload.label": "Title:",
+    "upload.size": "Size:",
+    "upload.url": "URL:"
+}

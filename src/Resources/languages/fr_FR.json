@@ -1,0 +1,16 @@
+{
+    "upload.title": "Upload",
+
+    "upload.add_media": "Ajouter un média",
+    "upload.add_medias": "Ajouter des médias",
+
+    "upload.delete_selection": "Supprimer les éléments sélectionnés",
+    "upload.delete_all": "Supprimer tous les médias",
+
+    "upload.cannot_upload": "Il semblerait que vous n'ayez pas les droits pour uploader un média.",
+
+    "upload.dimensions": "Dimensions :",
+    "upload.label": "Titre :",
+    "upload.size": "Taille :",
+    "upload.url": "URL :"
+}
