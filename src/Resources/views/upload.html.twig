@@ -7,7 +7,7 @@
     <div id="{{ identifier }}-upload" class="olz-field upload">
         <input type="hidden" name="{{ name }}" value="" />
 
-        <div class="u-results">
+        <div class="l-results">
             {% for item in value if item.id %}
                 {% include '@upload/expand.html.twig' with {
                     'can_upload': can_upload,
@@ -31,8 +31,8 @@
 
         <div class="hide-if-no-js submitbox">
             {% if can_upload %}
-                <a href="#addMedia" class="button add-media" title="{{ t_add_media }}">
-                    <i class="dashicons dashicons-upload"></i> {{ t_add_media|raw }}
+                <a href="#addMedia" class="button add-media" title="{{ t_add_media|raw }}">
+                    {{ t_add_media|raw }}
                 </a>
 
                 {% if multiple %}
@@ -50,14 +50,13 @@
                 $(document).ready(function() {
                     $("#{{ identifier }}-upload").zeusUpload({
                         addbutton: ".add-media",
-                        container: ".u-results",
+                        container: ".l-results",
                         delallbutton: ".del-all-medias",
                         delbutton: ".del-media",
                         items: "fieldset",
                         size: "{{ size }}",
                         source: "{{ identifier }}-item",
 
-                        // Options usefull for WordPress medialib
                         multiple: {{ multiple ? 'true' : 'false' }},
                         type: "{{ type }}",
                     });

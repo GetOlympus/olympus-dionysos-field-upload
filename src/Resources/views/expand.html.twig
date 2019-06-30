@@ -13,22 +13,22 @@
     {% endif %}
 
     {% if 'image' == type %}
-        <figure class="u-block">
+        <figure class="l-block">
             <img src="{{ _display }}" alt="" class="image" />
         </figure>
     {% else %}
-        <div class="u-block">
+        <div class="l-block">
             <a href="{{ _display }}" target="_blank"><small>{{ _name }}</small></a>
         </div>
     {% endif %}
 
-    <div class="u-details">
-        <p class="u-texts">
+    <div class="l-details">
+        <p class="text">
             <span>{{ t_label|raw }}</span>
             <input type="text" name="{{ fieldname }}[{{ _id }}][name]" value="{{ _name }}" class="regular-text" />
         </p>
 
-        <p class="u-texts">
+        <p class="text">
             <small>
                 <b>{{ t_url|raw }}</b> <a href="{{ _url }}" target="_blank"><i class="dashicons dashicons-external"></i></a></br/>
                 <b>{{ t_dimensions|raw }}</b> {{ _width }}*{{ _height }}px<br/>
