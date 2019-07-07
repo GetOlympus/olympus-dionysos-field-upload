@@ -58,6 +58,7 @@ return \GetOlympus\Field\Upload::build('my_upload_field_id', [
 
 Notes:
 * `can_upload` value is defined thanks to `current_user_can('upload_files')` (see [WordPress reference](https://codex.wordpress.org/Function_Reference/current_user_can))
+* Set `multiple` to `true` to enable the "Add medias" button
 
 ## Texts definition
 
