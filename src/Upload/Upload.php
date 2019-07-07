@@ -13,8 +13,6 @@ use GetOlympus\Zeus\Translate\Controller\Translate;
  * @author Achraf Chouk <achrafchouk@gmail.com>
  * @since 0.0.1
  *
- * @see https://olympus.readme.io/v1.0/docs/image-field
- *
  */
 
 class Upload extends Field
