@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="https://img.icons8.com/nolan/2x/upload.png">
+</p>
+
 # Upload Field
 > This component is a part of the [**Olympus Zeus Core**][zeus-url] **WordPress** framework.  
 > It uses the default WordPress media upload component.
@@ -11,7 +15,7 @@
 Using `composer` in your PHP project:
 
 ```sh
-composer install getolympus/olympus-upload-field
+composer require getolympus/olympus-upload-field
 ```
 
 ## Field initialization
@@ -20,27 +24,27 @@ Use the following lines to add a `upload field` in your **WordPress** admin page
 
 ```php
 return \GetOlympus\Field\Upload::build('my_upload_field_id', [
-    'title' => 'What\'s your flavor?',
-    'can_upload' => false,
-    'default' => [],
+    'title'       => 'What\'s your flavor?',
+    'can_upload'  => false,
+    'default'     => [],
     'description' => 'Tell me what\'s your flavour!',
-    'multiple' => false,
-    'type' => 'image',
-    'size' => 'thumbnail',
+    'multiple'    => false,
+    'type'        => 'image',
+    'size'        => 'thumbnail',
 
     /**
      * Texts definition
      * @see the `Texts definition` section below
      */
-    't_add_media' => 'Add media',
-    't_add_medias' => 'Add medias',
-    't_delete_item' => 'Delete selection',
-    't_delete_all' => 'Delete all medias',
+    't_add_media'     => 'Add media',
+    't_add_medias'    => 'Add medias',
+    't_delete_item'   => 'Delete selection',
+    't_delete_all'    => 'Delete all medias',
     't_cannot_upload' => 'It seems you are not able to upload files.',
-    't_dimensions' => 'Dimensions:',
-    't_label' => 'Title:',
-    't_size' => 'Size:',
-    't_url' => 'URL:',
+    't_dimensions'    => 'Dimensions:',
+    't_label'         => 'Title:',
+    't_size'          => 'Size:',
+    't_url'           => 'URL:',
 ]);
 ```
 
@@ -109,6 +113,12 @@ if (!empty($upload)) {
 
 ## Release History
 
+* 0.0.12
+- [x] FIX: remove twig dependency from composer
+
+* 0.0.11
+- [x] FIX: remove zeus-core dependency from composer
+
 * 0.0.10
 - [x] ADD: new assets folder
 
@@ -120,8 +130,8 @@ Achraf Chouk
 Please, read [LICENSE][license-blob] for more information.  
 [![MIT][license-image]][license-url]
 
-[https://github.com/crewstyle](https://github.com/crewstyle)  
-[http://fr.linkedin.com/in/achrafchouk](http://fr.linkedin.com/in/achrafchouk)
+<https://github.com/crewstyle>  
+<https://fr.linkedin.com/in/achrafchouk>
 
 ## Contributing
 
