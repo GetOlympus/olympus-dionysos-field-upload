@@ -81,7 +81,7 @@ class Upload extends Field
         $vars = $contents;
 
         // Works on value
-        $vars['value'] = !is_array($value) ? [$value] : $value;
+        $vars['value'] = !is_array($value) ? [$value] : (isset($value['url']) ? [$value] : $value);
 
         // Check if user can upload
         $vars['can_upload'] = current_user_can('upload_files');
