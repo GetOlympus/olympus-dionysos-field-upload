@@ -2,14 +2,14 @@
 
 namespace GetOlympus\Field;
 
-use GetOlympus\Zeus\Field\Controller\Field;
-use GetOlympus\Zeus\Translate\Controller\Translate;
+use GetOlympus\Zeus\Field\Field;
+use GetOlympus\Zeus\Utils\Translate;
 
 /**
- * Builds Image field.
+ * Builds Upload field.
  *
- * @package Field
- * @subpackage Image
+ * @package DionysosField
+ * @subpackage Upload
  * @author Achraf Chouk <achrafchouk@gmail.com>
  * @since 0.0.1
  *
@@ -42,7 +42,7 @@ class Upload extends Field
      *
      * @return array
      */
-    protected function getDefaults()
+    protected function getDefaults() : array
     {
         return [
             'title' => Translate::t('upload.title', $this->textdomain),
@@ -75,7 +75,7 @@ class Upload extends Field
      *
      * @return array
      */
-    protected function getVars($value, $contents)
+    protected function getVars($value, $contents) : array
     {
         // Get contents
         $vars = $contents;
