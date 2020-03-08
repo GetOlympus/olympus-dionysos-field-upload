@@ -1,17 +1,16 @@
 <?php
 
-namespace GetOlympus\Field;
+namespace GetOlympus\Dionysos\Field;
 
 use GetOlympus\Zeus\Field\Field;
-use GetOlympus\Zeus\Utils\Translate;
 
 /**
  * Builds Upload field.
  *
- * @package DionysosField
+ * @package    DionysosField
  * @subpackage Upload
- * @author Achraf Chouk <achrafchouk@gmail.com>
- * @since 0.0.1
+ * @author     Achraf Chouk <achrafchouk@gmail.com>
+ * @since      0.0.1
  *
  */
 
@@ -45,7 +44,7 @@ class Upload extends Field
     protected function getDefaults() : array
     {
         return [
-            'title' => Translate::t('upload.title', $this->textdomain),
+            'title' => parent::t('upload.title', $this->textdomain),
             'default' => [],
             'can_upload' => false,
             'description' => '',
@@ -54,16 +53,16 @@ class Upload extends Field
             'size' => 'thumbnail',
 
             // texts
-            't_add_media' => Translate::t('upload.add_media', $this->textdomain),
-            't_add_medias' => Translate::t('upload.add_medias', $this->textdomain),
-            't_delete_item' => Translate::t('upload.delete_selection', $this->textdomain),
-            't_delete_all' => Translate::t('upload.delete_all', $this->textdomain),
-            't_cannot_upload' => Translate::t('upload.cannot_upload', $this->textdomain),
+            't_add_media' => parent::t('upload.add_media', $this->textdomain),
+            't_add_medias' => parent::t('upload.add_medias', $this->textdomain),
+            't_delete_item' => parent::t('upload.delete_selection', $this->textdomain),
+            't_delete_all' => parent::t('upload.delete_all', $this->textdomain),
+            't_cannot_upload' => parent::t('upload.cannot_upload', $this->textdomain),
 
-            't_dimensions' => Translate::t('upload.dimensions', $this->textdomain),
-            't_label' => Translate::t('upload.label', $this->textdomain),
-            't_size' => Translate::t('upload.size', $this->textdomain),
-            't_url' => Translate::t('upload.url', $this->textdomain),
+            't_dimensions' => parent::t('upload.dimensions', $this->textdomain),
+            't_label' => parent::t('upload.label', $this->textdomain),
+            't_size' => parent::t('upload.size', $this->textdomain),
+            't_url' => parent::t('upload.url', $this->textdomain),
         ];
     }
 

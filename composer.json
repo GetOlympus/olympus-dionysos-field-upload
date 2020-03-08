@@ -1,9 +1,9 @@
 {
-  "name": "getolympus/olympus-upload-field",
+  "name": "getolympus/olympus-dionysos-field-upload",
   "type": "olympus-field",
-  "description": "Upload field, this component is a part of the Olympus Zeus Core framework.",
-  "keywords": ["olympus-zeus", "upload", "field", "custom", "medialib", "framework", "php", "wordpress"],
-  "homepage": "https://github.com/GetOlympus/olympus-upload-field",
+  "description": "Upload field, this component is a part of the Olympus Dionysos fields.",
+  "keywords": ["olympus", "dionysos", "upload", "field", "custom", "medialib", "framework", "php", "wordpress"],
+  "homepage": "https://github.com/GetOlympus/olympus-dionysos-field-upload",
   "license": "MIT",
   "authors": [
     {
@@ -13,7 +13,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "GetOlympus\\Field\\": "src/Upload/"
+      "GetOlympus\\Dionysos\\Field\\": "src/Upload/"
     }
   },
   "extra": {
