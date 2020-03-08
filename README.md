@@ -109,15 +109,15 @@ if (!empty($upload)) {
 
 ## Release History
 
-0.0.13
+0.0.14
 - New Olympus components compatibility
 - Change repository to be a part of Dionysos fields
 
+0.0.13
+- FIX: retrocompatibility value getter
+
 0.0.12
 - FIX: remove twig dependency from composer
-
-0.0.11
-- FIX: remove zeus-core dependency from composer
 
 ## Authors and Copyright
 
