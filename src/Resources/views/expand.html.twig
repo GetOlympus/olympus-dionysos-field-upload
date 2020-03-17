@@ -5,40 +5,31 @@
 {% set _url = url is defined ? url : '{{ data.url }}' %}
 {% set _width = width is defined ? width : '{{ data.width }}' %}
 
-<fieldset data-u="{{ _id }}">
-    {% if can_upload %}
-        <a href="#deleteMedia" class="del-media">
-            <i class="dashicons dashicons-no-alt"></i>
-        </a>
-    {% endif %}
+<fieldset class="upload-block" data-u="{{ _id }}">
+    <input type="hidden" name="{{ fieldname }}[{{ _id }}][id]" value="{{ _id }}" />
+    <input type="hidden" name="{{ fieldname }}[{{ _id }}][height]" value="{{ _height }}" />
+    <input type="hidden" name="{{ fieldname }}[{{ _id }}][url]" value="{{ _url }}" />
+    <input type="hidden" name="{{ fieldname }}[{{ _id }}][width]" value="{{ _width }}" />
 
-    {% if 'image' == type %}
-        <figure class="l-block">
+    <a href="{{ _url }}" class="upload-url" target="_blank">
+        {% if 'image' == type %}
             <img src="{{ _display }}" alt="" class="image" />
-        </figure>
-    {% else %}
-        <div class="l-block">
-            <a href="{{ _display }}" target="_blank"><small>{{ _name }}</small></a>
-        </div>
+        {% else %}
+            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" focusable="false"><path d="M9.17 6l2 2H20v10H4V6h5.17M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"></path></svg>
+        {% endif %}
+    </a>
+
+    <p class="upload-text">
+        <input type="text" name="{{ fieldname }}[{{ _id }}][name]" value="{{ _name }}" class="large-text" placeholder="{{ t_name_label|raw }}" />
+    </p>
+
+    {% if can_upload %}
+        <button type="button" class="zeus-btn edit-button has-icon" aria-label="{{ t_editblock_label|raw }}">
+            <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M14.06 9.02l.92.92L5.92 19H5v-.92l9.06-9.06M17.66 3c-.25 0-.51.1-.7.29l-1.83 1.83 3.75 3.75 1.83-1.83c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.2-.2-.45-.29-.71-.29zm-3.6 3.19L3 17.25V21h3.75L17.81 9.94l-3.75-3.75z"></path></svg>
+        </button>
+
+        <button type="button" class="zeus-btn remove-button has-icon" aria-label="{{ t_removeblock_label|raw }}">
+            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 24 24" role="img" aria-hidden="true" focusable="false"><path d="M14.95 6.46L11.41 10l3.54 3.54-1.41 1.41L10 11.42l-3.53 3.53-1.42-1.42L8.58 10 5.05 6.47l1.42-1.42L10 8.58l3.54-3.53z"></path></svg>
+        </button>
     {% endif %}
-
-    <div class="l-details">
-        <p class="text">
-            <span>{{ t_label|raw }}</span>
-            <input type="text" name="{{ fieldname }}[{{ _id }}][name]" value="{{ _name }}" class="regular-text" />
-        </p>
-
-        <p class="text">
-            <small>
-                <b>{{ t_url|raw }}</b> <a href="{{ _url }}" target="_blank"><i class="dashicons dashicons-external"></i></a></br/>
-                <b>{{ t_dimensions|raw }}</b> {{ _width }}*{{ _height }}px<br/>
-                <b>{{ t_size|raw }}</b> {{ size }}
-            </small>
-        </p>
-
-        <input type="hidden" name="{{ fieldname }}[{{ _id }}][id]" value="{{ _id }}" />
-        <input type="hidden" name="{{ fieldname }}[{{ _id }}][height]" value="{{ _height }}" />
-        <input type="hidden" name="{{ fieldname }}[{{ _id }}][url]" value="{{ _url }}" />
-        <input type="hidden" name="{{ fieldname }}[{{ _id }}][width]" value="{{ _width }}" />
-    </div>
 </fieldset>

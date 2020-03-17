@@ -29,6 +29,11 @@ class Upload extends Field
     /**
      * @var string
      */
+    protected $script = 'js'.S.'upload.js';
+
+    /**
+     * @var string
+     */
     protected $template = 'upload.html.twig';
 
     /**
@@ -53,16 +58,14 @@ class Upload extends Field
             'size' => 'thumbnail',
 
             // texts
-            't_add_media' => parent::t('upload.add_media', $this->textdomain),
-            't_add_medias' => parent::t('upload.add_medias', $this->textdomain),
-            't_delete_item' => parent::t('upload.delete_selection', $this->textdomain),
-            't_delete_all' => parent::t('upload.delete_all', $this->textdomain),
+            't_addblock_description' => parent::t('upload.addblock_description', $this->textdomain),
+            't_addblocks_description' => parent::t('upload.addblocks_description', $this->textdomain),
             't_cannot_upload' => parent::t('upload.cannot_upload', $this->textdomain),
 
-            't_dimensions' => parent::t('upload.dimensions', $this->textdomain),
-            't_label' => parent::t('upload.label', $this->textdomain),
-            't_size' => parent::t('upload.size', $this->textdomain),
-            't_url' => parent::t('upload.url', $this->textdomain),
+            't_addblock_label' => parent::t('upload.addblock_label', $this->textdomain),
+            't_editblock_label' => parent::t('upload.editblock_label', $this->textdomain),
+            't_name_label' => parent::t('upload.name_label', $this->textdomain),
+            't_removeblock_label' => parent::t('upload.removeblock_label', $this->textdomain),
         ];
     }
 

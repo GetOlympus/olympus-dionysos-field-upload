@@ -1,18 +1,25 @@
 # Dionysos Upload Field
 > This component is a part of the **Olympus Dionysos fields** for **WordPress**.  
-> It uses the default WordPress media upload component.
-
-[![Olympus Component][olympus-image]][olympus-url]
-[![CodeFactor Grade][codefactor-image]][codefactor-url]
-[![Packagist Version][packagist-image]][packagist-url]
+> It uses the default `wpMedia` WordPress javascript bundle to manage field.
 
 ```sh
 composer require getolympus/olympus-dionysos-field-upload
 ```
 
+---
+
+[![Olympus Component][olympus-image]][olympus-url]
+[![CodeFactor Grade][codefactor-image]][codefactor-url]
+[![Packagist Version][packagist-image]][packagist-url]
+[![MIT][license-image]][license-blob]
+
+---
+
 <p align="center">
     <img src="https://github.com/GetOlympus/olympus-dionysos-field-upload/blob/master/assets/field-upload-64.png" />
 </p>
+
+---
 
 ## Field initialization
 
@@ -32,15 +39,13 @@ return \GetOlympus\Dionysos\Field\Upload::build('my_upload_field_id', [
      * Texts definition
      * @see the `Texts definition` section below
      */
-    't_add_media'     => 'Add media',
-    't_add_medias'    => 'Add medias',
-    't_delete_item'   => 'Delete selection',
-    't_delete_all'    => 'Delete all medias',
-    't_cannot_upload' => 'It seems you are not able to upload files.',
-    't_dimensions'    => 'Dimensions:',
-    't_label'         => 'Title:',
-    't_size'          => 'Size:',
-    't_url'           => 'URL:',
+    't_addblock_description'  => 'Click on the "+" button to add a media.',
+    't_addblocks_description' => 'Click on the "+" button to add medias.',
+    't_cannot_upload'         => 'It seems you are not able to upload files.',
+    't_name_label'            => 'Edit the legend',
+    't_addblock_label'        => 'Add',
+    't_editblock_label'       => 'Edit',
+    't_removeblock_label'     => 'Remove',
 ]);
 ```
 
@@ -64,15 +69,13 @@ Notes:
 
 | Code | Default value | Definition |
 | ---- | ------------- | ---------- |
-| `t_add_media` | Add media | Used as an add media label button |
-| `t_add_medias` | Add medias | Used as an add medias label button if `multiple` is set to `true` |
-| `t_delete_item` | Delete selection | Used as a delete selection label button |
-| `t_delete_all` | Delete all medias | Used as a delete medias label button |
-| `t_cannot_upload` | It seems you are not able to upload files. | Used as an error if user cannot upload files |
-| `t_dimensions` | Dimensions: | Dimension image label |
-| `t_label` | Title: | Title image label |
-| `t_size` | Size: | Size image label |
-| `t_url` | URL: | Url image label |
+| `t_addblock_description` | Click on the "+" button to add a media. | Main helper to add a single item box |
+| `t_addblocks_description` | Click on the "+" button to add medias. | Main helper to add multiple items boxes |
+| `t_cannot_upload` | It seems you are not able to upload files. | Error displayed if user cannot upload files |
+| `t_name_label` | Edit the legend | Name item's placeholder |
+| `t_addblock_label` | Add | Used as an Add button area title |
+| `t_editblock_label` | Edit | Used as an Edit button area title |
+| `t_removeblock_label` | Remove | Used as a Remove button area title |
 
 ## Retrive data
 
@@ -109,26 +112,15 @@ if (!empty($upload)) {
 
 ## Release History
 
+0.0.15
+- Display now compatible with new Zeus-Core version
+
 0.0.14
 - New Olympus components compatibility
 - Change repository to be a part of Dionysos fields
 
 0.0.13
 - FIX: retrocompatibility value getter
-
-0.0.12
-- FIX: remove twig dependency from composer
-
-## Authors and Copyright
-
-Achraf Chouk  
-[![@crewstyle][twitter-image]][twitter-url]
-
-Please, read [LICENSE][license-blob] for more information.  
-[![MIT][license-image]][license-url]
-
-<https://github.com/crewstyle>  
-<https://fr.linkedin.com/in/achrafchouk>
 
 ## Contributing
 
@@ -150,8 +142,5 @@ Please, read [LICENSE][license-blob] for more information.
 [getoption-url]: https://developer.wordpress.org/reference/functions/get_option/
 [license-blob]: https://github.com/GetOlympus/olympus-dionysos-field-upload/blob/master/LICENSE
 [license-image]: https://img.shields.io/badge/license-MIT_License-blue.svg?style=flat-square
-[license-url]: http://opensource.org/licenses/MIT
 [packagist-image]: https://img.shields.io/packagist/v/getolympus/olympus-dionysos-field-upload.svg?style=flat-square
 [packagist-url]: https://packagist.org/packages/getolympus/olympus-dionysos-field-upload
-[twitter-image]: https://img.shields.io/badge/crewstyle-blue.svg?style=social&logo=twitter
-[twitter-url]: https://twitter.com/crewstyle

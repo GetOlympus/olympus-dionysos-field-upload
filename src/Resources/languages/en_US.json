@@ -1,16 +1,13 @@
 {
     "upload.title": "Upload",
 
-    "upload.add_media": "Add media",
-    "upload.add_medias": "Add medias",
-
-    "upload.delete_selection": "Delete selection",
-    "upload.delete_all": "Delete all medias",
-
+    "upload.addblock_description": "Click on the \"+\" button to add a media.",
+    "upload.addblocks_description": "Click on the \"+\" button to add medias.",
     "upload.cannot_upload": "It seems you are not able to upload files.",
 
-    "upload.dimensions": "Dimensions:",
-    "upload.label": "Title:",
-    "upload.size": "Size:",
-    "upload.url": "URL:"
+    "upload.name_label": "Edit the legend",
+
+    "upload.addblock_label": "Add",
+    "upload.editblock_label": "Edit",
+    "upload.removeblock_label": "Remove"
 }

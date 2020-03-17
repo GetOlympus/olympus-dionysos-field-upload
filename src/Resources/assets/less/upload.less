@@ -5,31 +5,27 @@
  * Achraf Chouk (https://github.com/crewstyle)
  */
 
-@black: #000000;
-@white: #ffffff;
-
-.olz-field.upload {
-    .l-results {
-        font-size: 0;
+.dionysos-field.upload {
+    .listbox {
+        grid-gap: 15px 10px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
     }
 
     fieldset {
-        background-color: @white;
-        box-shadow: 0 2px 2px 0 fade(@black, 30%);
+        background-color: #fff;
         box-sizing: border-box;
-        display: inline-block;
-        margin: 0 5px 10px;
-        padding: 10px;
+        margin: 0 0 15px;
         position: relative;
-        vertical-align: top;
-        width: 300px;
+        width: 100%;
     }
 
-    .l-block {
+    .upload-url {
+        background: #0a1829;
+        color: #eee;
         display: block;
         margin: 0;
         padding: 0;
-        position: relative;
         text-align: center;
 
         img {
@@ -38,47 +34,46 @@
             margin: 0 auto;
             max-width: 100%;
         }
-    }
 
-    .l-details {
-        font-size: 0;
-        margin: 0;
-    }
-
-    p.text {
-        margin: 10px 0 0;
-
-        span {
-            display: block;
-            font-weight: 700;
-            margin: 0;
-            padding: 0;
-
-            a {
-                text-decoration: none;
-            }
+        svg {
+            fill: currentColor;
+            height: 78px;
+            margin: 30px auto;
+            outline: 0;
+            width: 78px;
         }
     }
 
-    input.regular-text {
-        max-width: 100%;
-        width: 100%;
+    .upload-text {
+        margin: 3px 0 0;
+
+        input {
+            margin: 0;
+            text-align: center;
+            width: 100%;
+        }
     }
 
-    a.del-media {
-        background-color: @white;
-        color: @black;
-        display: block;
-        font-size: 16px;
-        font-weight: 700;
-        height: 30px;
-        line-height: 30px;
-        padding: 4px 8px;
+    .zeus-btn.edit-button,
+    .zeus-btn.remove-button {
+        background: #0a1829;
+        color: #eee;
         position: absolute;
-        right: 0;
-        text-align: center;
-        text-decoration: none;
-        top: 0;
-        z-index: 4;
+        right: 36px;
+        top: 3px;
+
+        &:hover, &:focus {
+            background: #0a1829;
+            box-shadow: none;
+            color: #0073aa;
+        }
+    }
+
+    .zeus-btn.remove-button {
+        right: 3px;
+
+        &:hover, &:focus {
+            color: #f55e4f;
+        }
     }
 }
