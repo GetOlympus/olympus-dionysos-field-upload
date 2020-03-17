@@ -4,13 +4,14 @@
 {% block label %}<label>{{ title|raw }}</label>{% endblock %}
 
 {% block field %}
-    <div id="{{ identifier }}-upload" class="olz-field upload">
+    <div id="{{ identifier }}-upload" class="dionysos-field upload {{ type }}">
         <input type="hidden" name="{{ name }}" value="" />
 
-        <div class="l-results">
+        <div class="listbox">
             {% for item in value if item.id %}
                 {% include '@upload/expand.html.twig' with {
                     'can_upload': can_upload,
+
                     'display': item.url,
                     'fieldname': name,
                     'id': item.id,
@@ -21,25 +22,20 @@
                     'url': item.url,
                     'width': item.width,
 
-                    't_dimensions': t_dimensions,
-                    't_size': t_size,
-                    't_label': t_label,
-                    't_url': t_url,
+                    't_editblock_label': t_editblock_label,
+                    't_name_label': t_name_label,
+                    't_removeblock_label': t_removeblock_label,
                 } only %}
             {% endfor %}
         </div>
 
         <div class="hide-if-no-js submitbox">
             {% if can_upload %}
-                <a href="#addMedia" class="button add-media" title="{{ t_add_media|raw }}">
-                    {{ t_add_media|raw }}
-                </a>
+                {{ multiple ? t_addblocks_description : t_addblock_description }}
 
-                {% if multiple %}
-                    <a href="#deleteMedias" class="submitdelete deletion del-all-medias">
-                        {{ t_delete_all|raw }}
-                    </a>
-                {% endif %}
+                <button type="button" class="zeus-btn add-button has-icon" aria-label="{{ t_addblock_label|raw }}">
+                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="-2 -2 24 24" role="img" aria-hidden="true" focusable="false"><path d="M10 1c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm0 16c-3.9 0-7-3.1-7-7s3.1-7 7-7 7 3.1 7 7-3.1 7-7 7zm1-11H9v3H6v2h3v3h2v-3h3V9h-3V6zM10 1c-5 0-9 4-9 9s4 9 9 9 9-4 9-9-4-9-9-9zm0 16c-3.9 0-7-3.1-7-7s3.1-7 7-7 7 3.1 7 7-3.1 7-7 7zm1-11H9v3H6v2h3v3h2v-3h3V9h-3V6z"></path></svg>
+                </button>
             {% else %}
                 {{ t_cannot_upload|raw }}
             {% endif %}
@@ -48,17 +44,10 @@
         <script>
             (function($) {
                 $(document).ready(function() {
-                    $("#{{ identifier }}-upload").zeusUpload({
-                        addbutton: ".add-media",
-                        container: ".l-results",
-                        delallbutton: ".del-all-medias",
-                        delbutton: ".del-media",
-                        items: "fieldset",
-                        size: "{{ size }}",
-                        source: "{{ identifier }}-item",
-
+                    $("#{{ identifier }}-upload").dionysosUpload({
                         multiple: {{ multiple ? 'true' : 'false' }},
                         type: "{{ type }}",
+                        source: "{{ identifier }}-item",
                     });
                 });
             })(jQuery);
@@ -70,14 +59,14 @@
     <script type="text/html" id="tmpl-{{ identifier }}-item">
         {% include '@upload/expand.html.twig' with {
             'can_upload': can_upload,
+
             'fieldname': name,
             'size': size,
             'type': type,
 
-            't_dimensions': t_dimensions,
-            't_size': t_size,
-            't_label': t_label,
-            't_url': t_url,
+            't_editblock_label': t_editblock_label,
+            't_name_label': t_name_label,
+            't_removeblock_label': t_removeblock_label,
         } only %}
     </script>
 {% endblock %}
