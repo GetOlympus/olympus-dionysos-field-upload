@@ -19,7 +19,7 @@ class Upload extends Field
     /**
      * @var array
      */
-    protected $adminscripts = ['media', 'wp-util', 'zeus-upload'];
+    protected $adminscripts = ['enqueue_media'];
 
     /**
      * @var string

@@ -112,15 +112,15 @@ if (!empty($upload)) {
 
 ## Release History
 
+0.0.16
+- Remove useless admin scripts
+
 0.0.15
 - Display now compatible with new Zeus-Core version
 
 0.0.14
 - New Olympus components compatibility
 - Change repository to be a part of Dionysos fields
-
-0.0.13
-- FIX: retrocompatibility value getter
 
 ## Contributing
 
